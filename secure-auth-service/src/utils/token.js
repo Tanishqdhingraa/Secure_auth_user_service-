@@ -10,7 +10,7 @@ const generateAccessToken = (user)=>{
 
 const generateRefrshToken = (user)=>{
     return jwt.sign(user,
-        process.env.JWT_RefrshToken,
+        process.env.REFRESH_SECRET,
         {expiresIn:"30m"}
     )
 }
