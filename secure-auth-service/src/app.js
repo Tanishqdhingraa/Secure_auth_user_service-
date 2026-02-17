@@ -1,15 +1,14 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import logger from './config/logger.js'
+const express = require("express");
+const dotenv = require("dotenv");
+const logger = require("./config/logger");
 
-// import  AuthenticatedRoutes from './'
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 
-// app.use('api/auth',AuthenticatedRoutes)
+app.use("/api/auth", require("./routes/auth.routes"));
 
 app.use((err, req, res, next) => {
   logger.error(err.message);
